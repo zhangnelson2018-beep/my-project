@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>贪吃蛇</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell" aria-labelledby="game-title">
+      <section class="hero">
+        <p class="eyebrow">Classic Arcade</p>
+        <h1 id="game-title">贪吃蛇</h1>
+        <p class="intro">吃掉发光的苹果，避开墙壁和自己的身体，刷新你的最高分。</p>
+      </section>
+
+      <section class="scoreboard" aria-label="游戏分数">
+        <div class="score-card">
+          <span>当前分数</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="score-card">
+          <span>最高分</span>
+          <strong id="best-score">0</strong>
+        </div>
+        <div class="score-card">
+          <span>速度</span>
+          <strong id="speed-label">普通</strong>
+        </div>
+      </section>
+
+      <section class="board-panel">
+        <canvas id="game-board" width="520" height="520" aria-label="贪吃蛇游戏区域"></canvas>
+        <div id="overlay" class="overlay">
+          <h2 id="overlay-title">准备开始</h2>
+          <p id="overlay-text">按空格键或点击“开始游戏”控制小蛇出发。</p>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="游戏控制">
+        <button id="start-button" type="button">开始游戏</button>
+        <button id="pause-button" type="button">暂停</button>
+        <button id="reset-button" type="button">重新开始</button>
+        <label>
+          难度
+          <select id="difficulty" aria-label="选择难度">
+            <option value="easy">悠闲</option>
+            <option value="normal" selected>普通</option>
+            <option value="hard">极速</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="mobile-controls" aria-label="移动端方向控制">
+        <button data-direction="up" aria-label="向上">▲</button>
+        <div>
+          <button data-direction="left" aria-label="向左">◀</button>
+          <button data-direction="down" aria-label="向下">▼</button>
+          <button data-direction="right" aria-label="向右">▶</button>
+        </div>
+      </section>
+
+      <aside class="help">
+        <h2>玩法说明</h2>
+        <ul>
+          <li>使用方向键或 WASD 控制移动方向。</li>
+          <li>每吃到一个苹果得 10 分，小蛇会变长。</li>
+          <li>撞到墙壁或自己的身体时游戏结束。</li>
+          <li>空格键可开始或暂停游戏。</li>
+        </ul>
+      </aside>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

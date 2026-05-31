@@ -1,0 +1,259 @@
+:root {
+  color-scheme: dark;
+  --bg: #09111f;
+  --panel: rgba(12, 22, 39, 0.88);
+  --panel-strong: #102033;
+  --text: #f4fbff;
+  --muted: #a9bdd2;
+  --accent: #56f39a;
+  --accent-2: #44c7ff;
+  --danger: #ff5b7f;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(68, 199, 255, 0.24), transparent 34rem),
+    radial-gradient(circle at bottom right, rgba(86, 243, 154, 0.18), transparent 30rem),
+    var(--bg);
+}
+
+button,
+select {
+  font: inherit;
+}
+
+.game-shell {
+  width: min(100%, 780px);
+  padding: clamp(18px, 4vw, 36px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 32px;
+  background: linear-gradient(145deg, rgba(16, 32, 51, 0.96), rgba(8, 16, 30, 0.94));
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.3rem, 8vw, 5rem);
+  line-height: 1;
+}
+
+.intro {
+  max-width: 36rem;
+  margin: 14px auto 0;
+  color: var(--muted);
+}
+
+.scoreboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 28px 0 18px;
+}
+
+.score-card {
+  padding: 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+.score-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.score-card strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--accent);
+  font-size: clamp(1.45rem, 5vw, 2.1rem);
+}
+
+.board-panel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: clamp(10px, 2.5vw, 18px);
+  border-radius: 28px;
+  background: var(--panel);
+}
+
+canvas {
+  width: min(100%, 520px);
+  aspect-ratio: 1;
+  border-radius: 20px;
+  background: #07111d;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+}
+
+.overlay {
+  position: absolute;
+  inset: clamp(18px, 4vw, 42px);
+  display: grid;
+  place-content: center;
+  padding: 20px;
+  border-radius: 22px;
+  background: rgba(5, 10, 18, 0.72);
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay h2 {
+  margin: 0 0 8px;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+}
+
+.overlay p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.controls,
+.mobile-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.controls button,
+.mobile-controls button,
+select {
+  min-height: 44px;
+  border: 0;
+  border-radius: 999px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.09);
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.controls button,
+.mobile-controls button {
+  padding: 0 20px;
+  font-weight: 800;
+}
+
+#start-button {
+  color: #04120b;
+  background: linear-gradient(135deg, var(--accent), #adffcf);
+}
+
+#reset-button {
+  background: rgba(255, 91, 127, 0.18);
+}
+
+.controls button:hover,
+.mobile-controls button:hover,
+select:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+#start-button:hover {
+  background: linear-gradient(135deg, #8affbb, var(--accent));
+}
+
+.controls label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
+
+select {
+  padding: 0 42px 0 16px;
+  appearance: none;
+}
+
+.mobile-controls {
+  display: none;
+}
+
+.mobile-controls div {
+  display: flex;
+  gap: 12px;
+  flex-basis: 100%;
+  justify-content: center;
+}
+
+.mobile-controls button {
+  width: 58px;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+.help {
+  margin-top: 22px;
+  padding: 18px 22px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.help h2 {
+  margin: 0 0 10px;
+}
+
+.help ul {
+  margin: 0;
+  padding-left: 1.3rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+@media (max-width: 620px) {
+  body {
+    padding: 12px;
+  }
+
+  .scoreboard {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .controls label,
+  .controls button,
+  select {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .mobile-controls {
+    display: flex;
+  }
+}
